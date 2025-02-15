@@ -27,6 +27,8 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'users',
+    'wallets',
+    'djmoney',
 ]
 
 MIDDLEWARE = [
