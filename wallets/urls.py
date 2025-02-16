@@ -1,6 +1,10 @@
 from django.urls import path
 
+from wallets.apps import WalletsConfig
 from wallets.views import WalletOperationAPIView, WalletBalanceAPIView, WalletCreateAPIView
+
+
+app_name = WalletsConfig.name
 
 urlpatterns = [
     path("api/v1/wallets/<uuid:wallet_uuid>/operation/", WalletOperationAPIView.as_view(), name="wallet-operation"),
