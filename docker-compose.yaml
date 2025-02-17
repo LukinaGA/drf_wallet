@@ -1,0 +1,22 @@
+services:
+  web:
+    image: wallet_app
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+        - postgres
+    environment:
+        DATABASE_URL: postgres://wallet_user:wallet_password@db:5432/wallet_db
+
+  postgres:
+    image: postgres:latest
+    environment:
+        POSTGRES_DB: ${NAME}
+        POSTGRES_USER: ${USER}
+        POSTGRES_PASSWORD: ${PASSWORD}
+    volumes:
+        - postgres_data:/var/lib/postgresql/data/
+
+volumes:
+  postgres_data:
